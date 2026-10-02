@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="510" viewBox="0 0 1100 510" role="img" aria-labelledby="title desc">
+  <title id="title">SnipPaste architecture</title>
+  <desc id="desc">A hand-drawn flow from the browser, through a Rust and Axum server, to SQLite storage and back.</desc>
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="8"/><feColorMatrix values=".13 0 0 0 .1  0 .13 0 0 .1  0 0 .13 0 .09  0 0 0 .1 0"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M1 1 Q5 4 10 5 Q6 7 1 10" fill="none" stroke="#d7f36a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      .ink{font-family:'Comic Sans MS','Segoe Print',cursive;fill:#f1f0e9}.small{font-family:'DM Mono','Courier New',monospace;fill:#a9aca1;font-size:15px}.label{font-family:'Comic Sans MS','Segoe Print',cursive;fill:#d7f36a;font-size:18px}.box{fill:#171916;stroke:#d7f36a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 0}.scribble{fill:none;stroke:#d7f36a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.flow{fill:none;stroke:#d7f36a;stroke-width:2;stroke-linecap:round;stroke-dasharray:7 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1100" height="510" rx="24" fill="#10110f"/>
+  <rect width="1100" height="510" rx="24" filter="url(#paper)" opacity=".42"/>
+  <text x="56" y="65" class="label" font-size="17">✳ a tiny map of how a paste travels</text>
+  <text x="56" y="101" class="ink" font-size="30">From your fingertips to a shareable link</text>
+
+  <!-- browser doodle -->
+  <path class="box" d="M79 194 Q83 187 95 188 L298 185 Q311 188 312 201 L309 341 Q307 352 296 352 L91 355 Q80 352 79 340Z"/>
+  <path class="scribble" d="M84 217 Q175 220 306 216" stroke="#85897c"/>
+  <circle cx="99" cy="203" r="3" fill="#d7f36a"/><circle cx="112" cy="203" r="3" fill="#83877a"/><circle cx="125" cy="203" r="3" fill="#83877a"/>
+  <path d="M112 246 Q115 240 124 241 L267 239 Q276 241 277 250 L275 311 Q274 318 265 319 L121 320 Q113 318 112 310Z" fill="#20231c" stroke="#41463a" stroke-width="1.4"/>
+  <path d="M128 262 l10 0 M128 279 l76 0 M128 296 l51 0" stroke="#a9aca1" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <path d="M222 301 q18 -22 37 -4" fill="none" stroke="#d7f36a" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="195" y="393" text-anchor="middle" class="ink" font-size="25">Your browser</text>
+  <text x="195" y="422" text-anchor="middle" class="small">write · choose expiry · share</text>
+
+  <!-- flow into server -->
+  <path class="flow" d="M337 268 C372 242 394 242 431 265"/>
+  <text x="383" y="227" text-anchor="middle" class="label" font-size="16">POST /api/pastes</text>
+
+  <!-- server doodle -->
+  <path class="box" d="M455 191 Q460 185 471 187 L675 190 Q686 191 687 203 L684 339 Q681 350 670 350 L466 347 Q455 345 454 334Z"/>
+  <path d="M484 222 Q482 216 490 215 L651 216 Q660 217 658 224 L657 252 Q655 258 647 257 L489 257 Q482 256 483 249Z" fill="#20231c" stroke="#555b4b" stroke-width="1.4"/>
+  <path d="M484 274 Q482 268 490 267 L651 268 Q660 269 658 276 L657 304 Q655 310 647 309 L489 309 Q482 308 483 301Z" fill="#20231c" stroke="#555b4b" stroke-width="1.4"/>
+  <circle cx="504" cy="236" r="5" fill="#d7f36a"/><circle cx="504" cy="288" r="5" fill="#d7f36a"/>
+  <path d="M522 233 l98 0 M522 286 l77 0" stroke="#a9aca1" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+  <text x="570" y="393" text-anchor="middle" class="ink" font-size="25">Rust + Axum</text>
+  <text x="570" y="422" text-anchor="middle" class="small">validate · route · return</text>
+  <text x="570" y="452" text-anchor="middle" class="label" font-size="15">SQLx · Tokio</text>
+
+  <!-- flow to storage -->
+  <path class="flow" d="M710 268 C750 242 775 243 812 264"/>
+  <text x="760" y="227" text-anchor="middle" class="label" font-size="16">save / fetch</text>
+
+  <!-- database doodle -->
+  <path d="M846 208 Q850 193 933 192 Q1016 194 1018 209 L1016 326 Q1012 343 933 346 Q851 344 846 328Z" fill="#171916" stroke="#d7f36a" stroke-width="2.2"/>
+  <ellipse cx="932" cy="208" rx="85" ry="17" fill="#20231c" stroke="#d7f36a" stroke-width="2.2"/>
+  <path d="M847 251 Q932 281 1017 251 M847 292 Q932 322 1017 292" fill="none" stroke="#78805d" stroke-width="1.7" stroke-dasharray="5 6"/>
+  <text x="932" y="393" text-anchor="middle" class="ink" font-size="25">SQLite</text>
+  <text x="932" y="422" text-anchor="middle" class="small">pastes that persist</text>
+
+  <!-- reply loop -->
+  <path d="M939 372 C932 478 190 482 181 369" fill="none" stroke="#83877a" stroke-width="1.5" stroke-dasharray="4 7" marker-end="url(#arrow)" opacity=".7"/>
+  <text x="560" y="485" text-anchor="middle" class="small">A short ID comes back. Open it for the page, JSON, or plain text.</text>
+</svg>

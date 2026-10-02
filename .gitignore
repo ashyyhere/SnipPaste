@@ -1,0 +1,23 @@
+# Rust build output
+/target/
+
+# Local database and SQLite sidecars
+/data/
+*.db
+*.db-shm
+*.db-wal
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
